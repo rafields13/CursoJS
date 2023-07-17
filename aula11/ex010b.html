@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro ou nativo?</title>
+    <style>
+        body {
+            font: normal 13pt Arial;
+            background: beige;
+        }
+        input {
+            font: normal 13pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você é do Brasil? Ou de outro país?</h1>
+    Digite aqui de onde você é: <input type="text" name="txtlocal" id="txtlocal">
+    <input type="button" value="Verificar" onclick="verificar()">
+    <div id="res"><p>Aqui aparecerá o resultado!</p></div>
+    <script>
+        function verificar() {
+            var txtl = window.document.querySelector('input#txtlocal')
+            var loc = txtl.value
+            var r = window.document.querySelector('div#res')
+            r.innerHTML = `<p>Você é do país <strong>${loc}</strong>.</p>`
+            if (loc == 'Brasil') {
+                r.innerHTML += `<p>Você é <strong>brasileiro</strong>!</p>`
+            } else {
+                r.innerHTML += `<p>Você é <strong>estrangeiro</strong>!</p>`
+            }
+    }
+    </script>
+</body>
+</html>

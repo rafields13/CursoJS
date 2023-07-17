@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocímetro on-line</title>
+    <style>
+        body {
+            font: normal 13pt Arial;
+            background: beige;
+        }
+        input {
+            font: normal 13pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    Digite aqui a velocidade do veículo: <input type="number" name="txtvel" id="txtvel"> km/h
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"><p>O resultado aparecerá aqui!</p></div>
+    <script>
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtvel')
+            var vel = Number(txtv.value)
+            var r = window.document.querySelector('div#res')
+            r.innerHTML = `<p>A velocidade é de <strong>${vel} km/h</strong>.</p>`
+            if (vel > 60) {
+                r.innerHTML += '<p>Você ultrapassou a velocidade permitida. Logo, receberá uma <strong>Multa</strong>!</p>'
+            }
+            r.innerHTML += '<p>Nunca se esqueça do cinto de segurança!</p>'
+        }
+    </script>
+</body>
+</html>
